@@ -80,6 +80,22 @@ app.put("/articles/:articleTitle", function (req, res) {
   );
 });
 
+app.patch("/articles/:articleTitle", function (req, res) {
+  Article.update(
+    { title: req.params.articleTitle },
+    { $set: req.body },
+    function (err) {
+      if (!err) {
+        res.send("Successfully patched articles!");
+      } else {
+        res.send(err);
+      }
+    }
+  );
+});
+
+app.delete("/articles/:articleTitle", function (req, res) {});
+
 //Listen for server
 app.listen(3000, function () {
   console.log("Server started on port 3000!");
