@@ -94,7 +94,15 @@ app.patch("/articles/:articleTitle", function (req, res) {
   );
 });
 
-app.delete("/articles/:articleTitle", function (req, res) {});
+app.delete("/articles/:articleTitle", function (req, res) {
+  Article.deleteOne({ title: req.params.articleTitle }, function (err) {
+    if (!err) {
+      res.send("Deleted article!");
+    } else {
+      res.send(err);
+    }
+  });
+});
 
 //Listen for server
 app.listen(3000, function () {
