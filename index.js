@@ -54,55 +54,54 @@ app
 
 /********************************************  All Routes to individual articles ****************************************/
 
-app.get("/articles/:articleTitle", function (req, res) {
-  Article.findOne({ title: req.params.articleTitle }, function (
-    err,
-    foundArticle
-  ) {
-    if (foundArticle) {
-      res.send(foundArticle);
-    } else {
-      res.send("No article with that title found!");
-    }
-  });
-});
-
-app.put("/articles/:articleTitle", function (req, res) {
-  Article.update(
-    { title: req.params.articleTitle },
-    { title: req.body.title, content: req.body.content },
-    { overwrite: true },
-    function (err) {
-      if (!err) {
-        res.send("Successfully updated article!");
+app
+  .route("/articles/:articleTitle")
+  .get(function (req, res) {
+    Article.findOne({ title: req.params.articleTitle }, function (
+      err,
+      foundArticle
+    ) {
+      if (foundArticle) {
+        res.send(foundArticle);
+      } else {
+        res.send("No article with that title found!");
       }
-    }
-  );
-});
-
-app.patch("/articles/:articleTitle", function (req, res) {
-  Article.update(
-    { title: req.params.articleTitle },
-    { $set: req.body },
-    function (err) {
+    });
+  })
+  .put(function (req, res) {
+    Article.update(
+      { title: req.params.articleTitle },
+      { title: req.body.title, content: req.body.content },
+      { overwrite: true },
+      function (err) {
+        if (!err) {
+          res.send("Successfully updated article!");
+        }
+      }
+    );
+  })
+  .patch(function (req, res) {
+    Article.update(
+      { title: req.params.articleTitle },
+      { $set: req.body },
+      function (err) {
+        if (!err) {
+          res.send("Successfully patched articles!");
+        } else {
+          res.send(err);
+        }
+      }
+    );
+  })
+  .delete(function (req, res) {
+    Article.deleteOne({ title: req.params.articleTitle }, function (err) {
       if (!err) {
-        res.send("Successfully patched articles!");
+        res.send("Deleted article!");
       } else {
         res.send(err);
       }
-    }
-  );
-});
-
-app.delete("/articles/:articleTitle", function (req, res) {
-  Article.deleteOne({ title: req.params.articleTitle }, function (err) {
-    if (!err) {
-      res.send("Deleted article!");
-    } else {
-      res.send(err);
-    }
+    });
   });
-});
 
 //Listen for server
 app.listen(3000, function () {
