@@ -1,36 +1,27 @@
 [
-    {
+    { 
         title : "Women Who Code Connect Forward",
-        content: "WWCode CONNECT Forward is a space to connect with your community,
-         level up your technical skills, and find inspiration to move forward together."
+        content: "WWCode CONNECT Forward is a space to connect with your community, level up your technical skills, and find inspiration to move forward together."
     }
     
-    {
+    { 
         title: "Conditional Rendering in React", 
-        content : "Conditional rendering in React works the same way conditions work in JavaScript. 
-        Use JavaScript operators like if or the conditional operator to create elements 
-        representing the current state, and let React update the UI to match them."
+        content : "It uses JavaScript operators like if or the conditional operator to create elements representing the current state, and let React update the UI to match them."
     }
     
     {
         title : "Who is Karen Efereyan",
-        content : "Karen is an empathetic full-stack developer currently based in Nigeria.
-         She loves to  create software that solves real human problems. She wants to be 
-         involved in every aspect of a software product's development lifecycle,
-          from design, to deployment and everything in between."
+        content : "Karen is an empathetic full-stack developer that is interested in every aspect of a software product's development lifecycle"
     }
      
     {
         title : "Starting With Nodejs",
-        content : "Node.js is an environment that can run JavaScript code outside of a web browser. 
-        Gatsby is built with Node.js. To get up and running with Gatsby, you’ll need to have a recent version installed on your computer. npm comes bundled with Node.js so if you don’t have npm, 
-        chances are that you don’t have Node.js either."
+        content : "Node.js is an environment that can run JavaScript code outside of a web browser."
     }
     
     {
         title : "What is Expressjs?", 
-        content : "Express is a minimal and flexible Node.js web application framework that 
-        provides a robust set of features for web and mobile applications."
+        content : "Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications."
     }
     
 ]

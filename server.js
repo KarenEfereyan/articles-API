@@ -83,7 +83,7 @@ app.route('/articles/:articleId')
 })
 //Put a single article
 .put(function(req, res){
-  Article.updateOne( 
+  Article.update( 
     { _id: req.params.articleId },
     { title: req.body.title, content: req.body.content },
     { overwrite: true }, 
@@ -95,7 +95,7 @@ app.route('/articles/:articleId')
 })
 //patch a single article
 .patch( function(req, res){
-  Article.updateOne(
+  Article.update(
     {_id : req.params.articleId},
     {$set : req.body}, 
     function(err){
